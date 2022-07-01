@@ -100,7 +100,7 @@ export class KalkulacijeComponent implements OnInit {
       this.calculate();
     })
 
-    this.currencies = ["DIN", "EUR", "USD", "CHF", "GBP", "AUD", "CAD", "SEK", "DKK", "NOK",
+    this.currencies = ["RSD", "EUR", "USD", "CHF", "GBP", "AUD", "CAD", "SEK", "DKK", "NOK",
               "JPY", "RUB", "CNY", "HRK", "KWD", "PLN", "CZK", "HUF", "BAM"];
 
     this.filterForm = formBuilder.group({
@@ -284,7 +284,7 @@ export class KalkulacijeComponent implements OnInit {
   }
 
   getAsDate(datum: string) {
-    return new Date(datum).toLocaleDateString('it-IT');
+    return new Date(datum).toISOString().substring(0, 10).replaceAll('-', '/');
   }
 
   cancelNewKalk(){
